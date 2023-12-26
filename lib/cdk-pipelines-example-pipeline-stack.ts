@@ -55,7 +55,7 @@ export class CdkPipelinesExamplePipelineStack extends cdk.Stack {
                             },
                         },
                         artifacts: {
-                            'base-directory': 'dist',
+                            'base-directory': 'cdk.out',
                             files: [
                                 'CdkPipelinesExampleStack.template.json',
                             ],
