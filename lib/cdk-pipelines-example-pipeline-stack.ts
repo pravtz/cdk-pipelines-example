@@ -28,7 +28,7 @@ export class CdkPipelinesExamplePipelineStack extends cdk.Stack {
                 oauthToken: cdk.SecretValue.secretsManager('github-token'),
                 owner: 'pravtz',
                 repo: 'cdk-pipelines-example',
-                branch: 'main',
+                branch: 'master',
                 trigger: codepipeline_actions.GitHubTrigger.WEBHOOK,
             }),
         ],
