@@ -2,10 +2,19 @@
 import 'source-map-support/register';
 import * as cdk from 'aws-cdk-lib';
 import { CdkPipelinesExamplePipelineStack } from '../lib/cdk-pipelines-example-pipeline-stack';
+import { getConfig } from '../config';
+
+
+const config = getConfig();
+
+const env: cdk.Environment = {
+    account: config.CDK_DEFAULT_REGION,
+    region: config.CDK_DEFAULT_ACCOUNT
+}
 
 const app = new cdk.App();
 new CdkPipelinesExamplePipelineStack(app, 'CdkPipelinesExampleStack', {
-    env: { account: process.env.CDK_ACCOUNT, region: process.env.CDK_REGION }
+    env
 });
 
 app.synth();
