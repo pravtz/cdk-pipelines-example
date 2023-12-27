@@ -8,8 +8,8 @@ import { getConfig } from '../config';
 const config = getConfig();
 
 const env: cdk.Environment = {
-    account: config.CDK_DEFAULT_REGION,
-    region: config.CDK_DEFAULT_ACCOUNT
+    account: config.CDK_DEFAULT_ACCOUNT,
+    region: config.CDK_DEFAULT_REGION
 }
 
 const app = new cdk.App();
