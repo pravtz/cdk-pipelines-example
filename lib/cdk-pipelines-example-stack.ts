@@ -4,18 +4,24 @@ import * as apigw from 'aws-cdk-lib/aws-apigateway';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as path from 'path';
 
+interface CdkPipelinesExampleStackProps extends cdk.StackProps {
+  stageName?: string;
+}
+
 export class CdkPipelinesExampleStack extends cdk.Stack {
   public readonly urlOutput: cdk.CfnOutput;
 
-
-  constructor(scope: Construct, id: string, props?: cdk.StackProps) {
+  constructor(scope: Construct, id: string, props: CdkPipelinesExampleStackProps) {
     super(scope, id, props);
 
     // Lambda function
     const handler = new lambda.Function(this, 'LamdaHandler',{
       runtime: lambda.Runtime.NODEJS_18_X,
-      handler: 'handler.handler',
+      handler: 'handler',
       code: lambda.Code.fromAsset(path.resolve(__dirname, 'lambda')),
+      environment: {
+        STAGE: props.stageName!,
+      }
     });
 
     // API Gateway
