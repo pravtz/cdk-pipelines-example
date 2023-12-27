@@ -16,7 +16,7 @@ export class CdkPipelinesExampleStack extends cdk.Stack {
 
     // Lambda function
     const handler = new lambda.Function(this, 'LamdaHandler',{
-      runtime: lambda.Runtime.NODEJS_18_X,
+      runtime: lambda.Runtime.NODEJS_20_X,
       handler: 'handler',
       code: lambda.Code.fromAsset(path.resolve(__dirname, 'lambda')),
       environment: {
