@@ -13,7 +13,7 @@ export class CdkPipelinesExamplePipelineStack extends cdk.Stack {
         pipelineName: 'MyPipeline',
         synth: new ShellStep('Synth', {
             input: CodePipelineSource.gitHub('pravtz/cdk-pipelines-example', 'master'),
-            commands: ['npm ci', 'npm run build', 'npx cdk synth'],
+            commands: ['npm ci', 'npx cdk synth'],
             primaryOutputDirectory: 'cdk.out',
 
         })
